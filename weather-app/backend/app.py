@@ -575,6 +575,10 @@ def get_hourly_forecast():
     except Exception as e:
         return jsonify({'error': f'Server error: {str(e)}'}), 500
 
+@app.route('/api/health')
+def health_check():
+    return jsonify({"status": "healthy"}), 200
+
 if __name__ == '__main__':
     initialize_db() # Run DB initialization on startup
     app.run(debug=True, port=5001) # Run on port 5001 
