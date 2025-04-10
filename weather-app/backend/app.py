@@ -15,7 +15,9 @@ app = Flask(__name__)
 
 # Configure CORS more explicitly
 # Allow requests from your frontend origin (adjust port if different)
-CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+# CORS(app, resources={r"/api/*": {"origins": "http://localhost:5173"}})
+# Allow all origins for now - **REPLACE with specific origins for production**
+CORS(app)
 
 # Database configuration
 DB_CONFIG = {

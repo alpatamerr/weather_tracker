@@ -21,7 +21,8 @@ function HomePage() {
   const searchContainerRef = useRef(null)
   const navigate = useNavigate()
 
-  const API_URL = 'http://localhost:5001/api'
+  // Use environment variable for API base URL
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'
 
   const getWeatherIcon = (weatherCode) => {
     const iconMap = {
@@ -51,7 +52,8 @@ function HomePage() {
     setLoading(true)
     setError('')
     try {
-      const response = await axios.get(`${API_URL}/weather?city=${cityName}`)
+      // Construct full URL
+      const response = await axios.get(`${API_BASE_URL}/api/weather?city=${cityName}`)
       setWeather(response.data)
       
       // Navigate to forecast page after getting weather
@@ -86,11 +88,10 @@ function HomePage() {
     setSelectedIndex(-1)
     
     if (cityName.length > 2) {
-      // Call the city search API endpoint
       setSearchLoading(true)
-      axios.get(`${API_URL}/city-search?q=${cityName}`)
+      // Construct full URL
+      axios.get(`${API_BASE_URL}/api/city-search?q=${cityName}`)
         .then(response => {
-          // Use full city data with location details
           setCitySuggestions(response.data)
         })
         .catch(err => {
@@ -257,7 +258,8 @@ function ForecastPage() {
   const [redirecting, setRedirecting] = useState(false)
   const navigate = useNavigate()
 
-  const API_URL = 'http://localhost:5001/api'
+  // Use environment variable for API base URL
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'
 
   const getWeatherIcon = (weatherCode) => {
     const iconMap = {
@@ -286,11 +288,12 @@ function ForecastPage() {
   const fetchForecast = async (cityName) => {
     setLoading(true)
     try {
-      const response = await axios.get(`${API_URL}/forecast?city=${cityName}`)
+      // Construct full URL
+      const response = await axios.get(`${API_BASE_URL}/api/forecast?city=${cityName}`)
       setForecast(response.data)
       
-      // Also fetch current weather
-      const weatherResponse = await axios.get(`${API_URL}/weather?city=${cityName}`)
+      // Construct full URL
+      const weatherResponse = await axios.get(`${API_BASE_URL}/api/weather?city=${cityName}`)
       setWeather(weatherResponse.data)
     } catch (err) {
       let errorMessage = err.response?.data?.error || 'Error fetching forecast data'
@@ -315,15 +318,15 @@ function ForecastPage() {
 
   const fetchHourlyForecast = async (cityName, date) => {
     try {
-      const response = await axios.get(`${API_URL}/hourly-forecast?city=${cityName}&date=${date}`)
-      // Set the hourly forecast data directly
-      setHourlyForecast(response.data);
-      setSelectedDay(date);
+      // Construct full URL
+      const response = await axios.get(`${API_BASE_URL}/api/hourly-forecast?city=${cityName}&date=${date}`)
+      setHourlyForecast(response.data)
+      setSelectedDay(date)
     } catch (err) {
-      console.error('Error fetching hourly forecast:', err);
-      setHourlyForecast([]);
+      console.error('Error fetching hourly forecast:', err)
+      setHourlyForecast([])
     }
-  };
+  }
 
   const handleDayClick = (day) => {
     fetchHourlyForecast(city, day.date)
