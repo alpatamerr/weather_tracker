@@ -86,7 +86,6 @@ A web application that provides real-time weather information and forecasts for 
 ## API Endpoints
 
 - `GET /api/weather?city={city_name}` - Get current weather for a city
-- `GET /api/forecast` 
 
 ## Technologies Used
 
