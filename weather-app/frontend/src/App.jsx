@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
-import { Container, Row, Col, Card, Form, Button, ListGroup, Alert, InputGroup, Dropdown } from 'react-bootstrap'
+import { Card, Form, Button, Alert, InputGroup } from 'react-bootstrap'
 import axios from 'axios'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -22,7 +22,7 @@ function HomePage() {
   const navigate = useNavigate()
 
   // Use environment variable for API base URL
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'
+  const BACKEND_API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'; // Standardized 
 
   const getWeatherIcon = (weatherCode) => {
     const iconMap = {
@@ -53,7 +53,7 @@ function HomePage() {
     setError('')
     try {
       // Construct full URL
-      const response = await axios.get(`${API_BASE_URL}/api/weather?city=${cityName}`)
+      const response = await axios.get(`${BACKEND_API_URL}/api/weather?city=${cityName}`)
       setWeather(response.data)
       
       // Navigate to forecast page after getting weather
@@ -86,12 +86,16 @@ function HomePage() {
     setCity(cityName)
     setSearchActive(true)
     setSelectedIndex(-1)
+
+
+    console.log('City input:', cityName); // Debugging log
     
     if (cityName.length > 2) {
       setSearchLoading(true)
       // Construct full URL
-      axios.get(`${API_BASE_URL}/api/city-search?q=${cityName}`)
+      axios.get(`${BACKEND_API_URL}/api/city-search?q=${cityName}`)
         .then(response => {
+          console.log('City suggestions response:', response.data); // Debugging log
           setCitySuggestions(response.data)
         })
         .catch(err => {
@@ -255,11 +259,10 @@ function ForecastPage() {
   const [selectedDay, setSelectedDay] = useState(null)
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
-  const [redirecting, setRedirecting] = useState(false)
   const navigate = useNavigate()
 
   // Use environment variable for API base URL
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'
+  const BACKEND_API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'
 
   const getWeatherIcon = (weatherCode) => {
     const iconMap = {
@@ -289,11 +292,11 @@ function ForecastPage() {
     setLoading(true)
     try {
       // Construct full URL
-      const response = await axios.get(`${API_BASE_URL}/api/forecast?city=${cityName}`)
+      const response = await axios.get(`${BACKEND_API_BASE_URL}/api/forecast?city=${cityName}`)
       setForecast(response.data)
       
       // Construct full URL
-      const weatherResponse = await axios.get(`${API_BASE_URL}/api/weather?city=${cityName}`)
+      const weatherResponse = await axios.get(`${BACKEND_API_BASE_URL}/api/weather?city=${cityName}`)
       setWeather(weatherResponse.data)
     } catch (err) {
       let errorMessage = err.response?.data?.error || 'Error fetching forecast data'
@@ -319,7 +322,7 @@ function ForecastPage() {
   const fetchHourlyForecast = async (cityName, date) => {
     try {
       // Construct full URL
-      const response = await axios.get(`${API_BASE_URL}/api/hourly-forecast?city=${cityName}&date=${date}`)
+      const response = await axios.get(`${BACKEND_API_BASE_URL}/api/hourly-forecast?city=${cityName}&date=${date}`)
       setHourlyForecast(response.data)
       setSelectedDay(date)
     } catch (err) {
