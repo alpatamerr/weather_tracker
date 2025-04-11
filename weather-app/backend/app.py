@@ -9,12 +9,18 @@ import datetime
 load_dotenv()
 
 app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:5173"}})  # Replace with your frontend's origin
+CORS(app, resources={r"/*": {"origins": "http://localhost:5173", "https://my-weathertracker.netlify.app"}})  # Replace with your frontend's origin
 
 # OpenWeatherMap API configuration
 WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 WEATHER_API_URL = 'https://api.openweathermap.org/data/2.5/weather'
 FORECAST_API_URL = 'https://api.openweathermap.org/data/2.5/forecast'
+
+
+@app.route('/')
+def index():
+    return jsonify({"message": "Weather API is running. Use /api/health for status check."}), 200
+
 
 @app.route('/api/weather', methods=['GET'])
 def get_weather():
