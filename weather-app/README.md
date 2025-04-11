@@ -49,22 +49,9 @@ A web application that provides real-time weather information and forecasts for 
         python3 -m venv venv
         source venv/bin/activate  # On Windows use `venv\Scripts\activate`
         ```
-    *   Install backend dependencies:
-        ```bash
-        pip install -r requirements.txt
-        ```
     *   Create a `.env` file in the `backend` directory and add your OpenWeatherMap API key and database credentials:
         ```env
         WEATHER_API_KEY=YOUR_OPENWEATHERMAP_API_KEY
-        
-        # Optional: If using the database features
-        DB_NAME=weather_db
-        DB_USER=postgres
-        DB_PASSWORD=your_db_password
-        DB_HOST=localhost
-        DB_PORT=5432
-        ```
-    *   Initialize the database (if using): The backend will attempt to create the database and tables on first run if they don't exist. Ensure your PostgreSQL server is running.
 
 3.  **Frontend Setup:**
     *   Navigate to the frontend directory:
@@ -99,11 +86,10 @@ A web application that provides real-time weather information and forecasts for 
 ## API Endpoints
 
 - `GET /api/weather?city={city_name}` - Get current weather for a city
-- `GET /api/history` - Get weather search history
+- `GET /api/forecast` 
 
 ## Technologies Used
 
 - Frontend: React, Vite, Bootstrap
 - Backend: Flask, Python
-- Database: PostgreSQL
 - API: OpenWeatherMap 
