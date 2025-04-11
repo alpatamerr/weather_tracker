@@ -28,10 +28,8 @@ A web application that provides real-time weather information and forecasts for 
     *   Requests (for making API calls to OpenWeatherMap)
     *   psycopg2-binary (for PostgreSQL interaction)
     *   python-dotenv (for environment variables)
-*   **Database:**
-    *   PostgreSQL (for storing user data and weather search history - *Note: User registration/login and history features are present in the backend code but may not be fully integrated into the current UI flow.*)
 *   **API:**
-    *   OpenWeatherMap API (for weather data)
+    *   OpenWeatherMap API (for weather data) 
 
 ## Setup and Installation
 
