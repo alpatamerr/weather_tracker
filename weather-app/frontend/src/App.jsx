@@ -22,7 +22,7 @@ function HomePage() {
   const navigate = useNavigate()
 
   // Use environment variable for API base URL
-  const BACKEND_API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'; // Standardized 
+  const BACKEND_API_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5001'; // Standardized  
 
   const getWeatherIcon = (weatherCode) => {
     const iconMap = {
