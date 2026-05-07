@@ -1,11 +1,9 @@
-# 1. HIDE THE UI NOISE (CSS, HTML, and SVG)
 *.css linguist-vendored
 *.html linguist-vendored
 *.svg linguist-vendored
 
-# 2. HIDE THE BYTE MONSTERS (Locks and Configs)
-weather-app/frontend/package-lock.json linguist-vendored
+weather-app/frontend/src/App.jsx linguist-vendored
 
-# 3. FORCE THE BACKEND TO BE THE FOCUS
+# 4. FORCE THE BACKEND TO BE THE FOCUS
 weather-app/backend/app.py linguist-detectable
 weather-app/backend/app.py linguist-vendored=false
