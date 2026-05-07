@@ -6,10 +6,6 @@
 # 2. HIDE THE BYTE MONSTERS (Locks and Configs)
 weather-app/frontend/package-lock.json linguist-vendored
 
-# 3. AGGRESSIVELY HIDE FRONTEND LOGIC
-# This ensures your one Python file beats the whole React UI
-weather-app/frontend/src/App.jsx linguist-vendored
-
-# 4. FORCE THE BACKEND TO BE THE FOCUS
+# 3. FORCE THE BACKEND TO BE THE FOCUS
 weather-app/backend/app.py linguist-detectable
 weather-app/backend/app.py linguist-vendored=false
