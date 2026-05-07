@@ -9,7 +9,6 @@ weather-app/frontend/package.json linguist-vendored
 
 # 3. AGGRESSIVELY HIDE FRONTEND LOGIC
 # This ensures your one Python file beats the whole React UI
-weather-app/frontend/src/components/** linguist-vendored
 weather-app/frontend/src/assets/** linguist-vendored
 weather-app/frontend/src/App.jsx linguist-vendored
 
