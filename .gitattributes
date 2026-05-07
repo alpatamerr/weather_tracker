@@ -7,9 +7,8 @@
 package-lock.json linguist-vendored
 weather-app/frontend/package-lock.json linguist-vendored
 weather-app/frontend/package.json linguist-vendored
-package.json linguist-vendored
-*.config.js linguist-vendored
-.eslint* linguist-vendored
+
+
 
 # 3. AGGRESSIVELY HIDE FRONTEND LOGIC
 # This ensures your one Python file beats the whole React UI
