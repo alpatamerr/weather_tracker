@@ -1,18 +1,19 @@
-weather-app/frontend/** linguist-vendored
+* linguist-vendored
 
-package-lock.json linguist-vendored
-package.json linguist-vendored
 *.json linguist-vendored
-*.config.js linguist-vendored
-.eslint* linguist-vendored
+*.lock linguist-vendored
+*.txt linguist-vendored
+package-lock.json linguist-vendored
+weather-app/frontend/package-lock.json linguist-vendored
 
-*.css linguist-vendored
-*.html linguist-vendored
-*.svg linguist-vendored
-
-# We only allow App.jsx to be visible to keep the JS color sliver
-weather-app/frontend/src/App.jsx linguist-detectable
-weather-app/frontend/src/App.jsx linguist-vendored=false
+weather-app/frontend/src/components/* linguist-vendored
+weather-app/frontend/src/assets/* linguist-vendored
+weather-app/frontend/src/main.jsx linguist-vendored
+weather-app/frontend/public/* linguist-vendored
 
 weather-app/backend/app.py linguist-detectable
 weather-app/backend/app.py linguist-vendored=false
+
+# We only allow one React file to be seen to show you have a UI
+weather-app/frontend/src/App.jsx linguist-detectable
+weather-app/frontend/src/App.jsx linguist-vendored=false
