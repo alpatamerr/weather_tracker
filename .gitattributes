@@ -1,19 +1,16 @@
-*.css linguist-vendored
-*.html linguist-vendored
-*.svg linguist-vendored
-*.png linguist-vendored
+weather-app/frontend/** linguist-vendored
 
 package-lock.json linguist-vendored
 package.json linguist-vendored
-weather-app/frontend/package-lock.json linguist-vendored
-weather-app/frontend/package.json linguist-vendored
+*.json linguist-vendored
 *.config.js linguist-vendored
 .eslint* linguist-vendored
 
-weather-app/frontend/src/components/** linguist-vendored
-weather-app/frontend/src/main.jsx linguist-vendored
-weather-app/frontend/src/index.css linguist-vendored
+*.css linguist-vendored
+*.html linguist-vendored
+*.svg linguist-vendored
 
+# We only allow App.jsx to be visible to keep the JS color sliver
 weather-app/frontend/src/App.jsx linguist-detectable
 weather-app/frontend/src/App.jsx linguist-vendored=false
 
