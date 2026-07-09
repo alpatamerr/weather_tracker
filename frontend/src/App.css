@@ -286,37 +286,44 @@ body {
 
 @media (max-width: 768px) {
   .page-container {
-    padding: 3.5rem 0.8rem 1.2rem;
+    padding: 3.25rem 0.7rem 1rem;
   }
 
   .weather-container,
   .weather-container.home-page {
     width: min(100%, 100%);
-    padding-bottom: 1.5rem;
+    gap: 1rem;
+    padding-bottom: 1.25rem;
   }
 
   .search-card {
     max-width: 100%;
-    margin: 0 0.75rem;
-    padding: 1.5rem 1rem;
+    margin: 0 0.5rem;
+    padding: 1.25rem 0.85rem;
   }
 
   .card-title {
-    font-size: 1.95rem;
+    font-size: 1.9rem;
   }
 
   .weather-card .card-body,
   .forecast-card .card-body {
-    padding: 1.5rem;
+    padding: 1.25rem;
   }
 
   .forecast-list {
     grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .forecast-item {
+    padding: 1rem;
   }
 
   .top-summary-grid {
     grid-template-columns: 1fr;
     text-align: center;
+    gap: 0.75rem;
   }
 
   .top-summary-weather {
@@ -326,25 +333,34 @@ body {
 
 @media (max-width: 480px) {
   .page-container {
-    padding: 4.25rem 0.75rem 1.25rem;
+    padding: 3.75rem 0.5rem 0.9rem;
   }
 
   .card-title {
-    font-size: 1.75rem;
+    font-size: 1.65rem;
   }
 
   .weather-card .card-body,
   .forecast-card .card-body {
-    padding: 1.25rem;
+    padding: 1rem;
+  }
+
+  .search-card {
+    margin: 0 0.25rem;
+    padding: 1rem 0.7rem;
   }
 
   .form-control,
   .input-group .btn-primary {
-    height: 48px !important;
+    height: 46px !important;
   }
 
   .btn-primary {
     border-radius: 0 1rem 1rem 0 !important;
+  }
+
+  .forecast-item {
+    border-radius: 12px;
   }
 }
 
@@ -683,9 +699,10 @@ body {
   margin-bottom: 1.5rem;
   background-color: white;
   border-radius: 12px;
-  padding: 1.5rem 1rem 0.5rem;
+  padding: 1rem 0.75rem 0.5rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   border: 1px solid #eee;
+  overflow-x: auto;
 }
 
 .chart-title {
@@ -767,6 +784,7 @@ body {
   display: flex;
   position: relative;
   height: auto;
+  min-width: 320px;
 }
 
 .y-axis {
@@ -808,11 +826,12 @@ body {
 
 .time-label, .precip-value, .weather-desc, .wind-value {
   flex: 1;
+  min-width: 0;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: #666;
-  padding: 0.25rem 0.1rem; /* Reduced horizontal padding */
-  line-height: 1.2;
+  padding: 0.2rem 0.05rem;
+  line-height: 1.15;
   box-sizing: border-box;
 }
 
@@ -843,32 +862,41 @@ body {
 /* Responsive styles for the chart */
 @media (max-width: 768px) {
   .temperature-chart-container {
-    padding: 1rem 0.5rem 0.5rem;
+    padding: 0.75rem 0.4rem 0.35rem;
   }
   
   .time-label, .precip-value, .weather-desc, .wind-value {
-    font-size: 0.75rem;
-    padding: 0.2rem 0.05rem;
+    font-size: 0.7rem;
+    padding: 0.16rem 0.03rem;
   }
   
   .chart-title {
-    font-size: 1.1rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+    margin-bottom: 0.65rem;
   }
 }
 
 @media (max-width: 480px) {
+  .temperature-chart {
+    min-width: 280px;
+  }
+
   .y-axis {
-    width: 30px;
-    height: 100px;
+    width: 28px;
+    height: 92px;
   }
   
   .temp-graph {
-    height: 100px;
+    height: 92px;
   }
   
   .y-label {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
+  }
+
+  .time-label, .precip-value, .weather-desc, .wind-value {
+    font-size: 0.65rem;
+    line-height: 1.1;
   }
 }
 
