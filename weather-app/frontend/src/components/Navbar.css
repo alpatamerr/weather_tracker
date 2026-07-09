@@ -3,11 +3,11 @@
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1030; /* Ensure it's above other content */
-  background: rgba(0, 0, 0, 0.8) !important;
+  z-index: 1030;
+  background: rgba(15, 23, 42, 0.9) !important;
   backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.7rem 1rem;
 }
 
 .custom-navbar .navbar-brand {
@@ -42,14 +42,24 @@
 
 @media (max-width: 991.98px) {
   .custom-navbar .navbar-collapse {
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(15, 23, 42, 0.95);
     padding: 1rem;
     border-radius: 10px;
     margin-top: 0.5rem;
   }
-  
+
   .custom-navbar .nav-link {
     margin: 0.5rem 0;
     text-align: right;
   }
-} 
+}
+
+@media (max-width: 575px) {
+  .custom-navbar {
+    padding: 0.65rem 0.8rem;
+  }
+
+  .custom-navbar .navbar-brand {
+    font-size: 1.1rem;
+  }
+}
